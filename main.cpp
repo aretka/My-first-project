@@ -7,7 +7,15 @@ int main()
  std::cout << "Iveskite varda: ";
  std::cin>> name;
 
- ilgis+=name.length()+13;
+ if(name[name.length()-1]=='s')
+  {
+     ilgis+=name.length()+13;
+      eil3+="Sveikas, "+name+"! *";
+  }
+  else{
+        ilgis+=name.length()+12;
+        eil3+="Sveika, "+name+"! *";
+  }
  for(int i=0; i<ilgis; i++)
   {
    eil1+="*";
@@ -21,8 +29,6 @@ int main()
   }
   eil2+="*";
   eil4+="*";
-
-  eil3+="Sveikas, "+name+"! *";
 
     std::cout << eil1 <<std::endl;
     std::cout << eil2 <<std::endl;
