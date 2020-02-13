@@ -2,39 +2,61 @@
 
 int main()
 {
-    int ilgis=0;
- std::string name, eil1="*", eil2="*", eil3="* ", eil4="*", eil5="*";
+    int ilgis=0, n;
+ std::string name, visoseiles="";
  std::cout << "Iveskite varda: ";
  std::cin>> name;
+ while(true)
+ {
+     std::cout << "Iveskite remelio ploti: ";
+     std::cin >>n;
+     if(n<3 || n%2==0)
+     std::cout<<"Pasirinkimas netinkamas"<<std::endl;
+     else
+        break;
+ }
 
  if(name[name.length()-1]=='s')
-  {
-     ilgis+=name.length()+13;
-      eil3+="Sveikas, "+name+"! *";
-  }
-  else{
-        ilgis+=name.length()+12;
-        eil3+="Sveika, "+name+"! *";
-  }
+     ilgis+=name.length()+14;
+  else
+        ilgis+=name.length()+13;
+
  for(int i=0; i<ilgis; i++)
   {
-   eil1+="*";
-   eil5+="*";
+   visoseiles+="*";
   }
+  visoseiles+="\n";
 
- for(int i=0; i<ilgis-1; i++)
+  for(int p=0; p<(n-3)/2; p++)
   {
-   eil2+=" ";
-   eil4+=" ";
+      visoseiles+="*";
+     for(int i=0; i<ilgis-2; i++)
+      {
+       visoseiles+=" ";
+      }
+      visoseiles=visoseiles+"*"+"\n";
   }
-  eil2+="*";
-  eil4+="*";
-
-    std::cout << eil1 <<std::endl;
-    std::cout << eil2 <<std::endl;
-    std::cout << eil3 <<std::endl;
-    std::cout << eil4 <<std::endl;
-    std::cout << eil5 <<std::endl;
+  if(name[name.length()-1]=='s')
+  {
+      visoseiles+="* Sveikas, "+name+"! *"+"\n";
+  }
+  else{
+      visoseiles+="* Sveika, "+name+"! *"+"\n";
+  }
+  for(int p=0; p<(n-3)/2; p++)
+  {
+      visoseiles+="*";
+     for(int i=0; i<ilgis-2; i++)
+      {
+       visoseiles+=" ";
+      }
+      visoseiles=visoseiles+"*"+"\n";
+  }
+  for(int i=0; i<ilgis; i++)
+  {
+   visoseiles+="*";
+  }
+   std::cout<<visoseiles;
   return 0;
 
 
